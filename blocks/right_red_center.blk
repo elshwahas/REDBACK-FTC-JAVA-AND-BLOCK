@@ -1,0 +1,1734 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="nm8rQsrmAb,Hy}-Y+!Zr">front_Left_Tgt</variable>
+<variable id="UUh~x{BIwkuO?ofz^{y8">front_Right_Tgt</variable>
+<variable id="):35FTE2b,~TLw+6r),,">back_Left_Tgt</variable>
+<variable id="u}~%~[LY.W}RCLLirgB3">back_Right_Tgt</variable>
+<variable id="nR~oAkJk%Y+}|V9oD$W%">speed</variable>
+<variable id="d?|O.6-9d.(WbJa{m_69">front_Left_pos</variable>
+<variable id="3.)/eLHm(iRl1^Qsq;Hb">USE_WEBCAM</variable>
+<variable type="AprilTagProcessor.Builder" id="NYqOu)Ei(Q{C!f;y!a^O">myAprilTagProcessorBuilder</variable>
+<variable id="l)/,LjA`jR!1Nc@Z:`l!">myAprilTagDetections</variable>
+<variable id="]G)Tf-JR:D,.webq`k!8">back_Left_pos</variable>
+<variable id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</variable>
+<variable id="?.?jAjDXaP~!^(jq/Ls_">myAprilTagProcessor</variable>
+<variable id="~UVKCG$/$[pgqb)VGJ5c">front_Right_pos</variable>
+<variable type="VisionPortal.Builder" id="wx@xgbnS_]b0DQL.08Qg">myVisionPortalBuilder</variable>
+<variable id="f|m^CFyYXe;N1iRm`|ao">back_Right_pos</variable>
+<variable id="Xk!_{IPng0#/P|7dx?3N">myVisionPortal</variable>
+</variables>
+<block type="procedures_defnoreturn" id=":$AI;Wns.+dPSN4({6+d" x="903" y="81">
+<mutation>
+<arg name="front_Left_Tgt" varid="nm8rQsrmAb,Hy}-Y+!Zr"/>
+<arg name="front_Right_Tgt" varid="UUh~x{BIwkuO?ofz^{y8"/>
+<arg name="back_Left_Tgt" varid="):35FTE2b,~TLw+6r),,"/>
+<arg name="back_Right_Tgt" varid="u}~%~[LY.W}RCLLirgB3"/>
+<arg name="speed" varid="nR~oAkJk%Y+}|V9oD$W%"/>
+</mutation>
+<field name="NAME">Robotics_Encoder</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="variables_set" id="dt[B:9yVZ]KB=7l@x{wP">
+<field name="VAR" id="d?|O.6-9d.(WbJa{m_69">front_Left_pos</field>
+<value name="VALUE">
+<block type="variables_get" id=")BnEp*4AG)n[oqf^~sBS">
+<field name="VAR" id="nm8rQsrmAb,Hy}-Y+!Zr">front_Left_Tgt</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="P50T+iSC~7RUN3H{~tj$">
+<field name="VAR" id="]G)Tf-JR:D,.webq`k!8">back_Left_pos</field>
+<value name="VALUE">
+<block type="variables_get" id="nO7ojieB!$rP=WOrKxzX">
+<field name="VAR" id="):35FTE2b,~TLw+6r),,">back_Left_Tgt</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="Kxy2R.Ms$,$$2Oh(=je^">
+<field name="VAR" id="~UVKCG$/$[pgqb)VGJ5c">front_Right_pos</field>
+<value name="VALUE">
+<block type="variables_get" id="@tQn)%`W]1w8~gLKhs2s">
+<field name="VAR" id="UUh~x{BIwkuO?ofz^{y8">front_Right_Tgt</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="iije{?UP4[[d?V}`^G}_">
+<field name="VAR" id="f|m^CFyYXe;N1iRm`|ao">back_Right_pos</field>
+<value name="VALUE">
+<block type="variables_get" id=".|N[|fl,3^ols8I`{;8K">
+<field name="VAR" id="u}~%~[LY.W}RCLLirgB3">back_Right_Tgt</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id=",r#XYj;]R2+NW*ur/,]u">
+<field name="PROP">TargetPosition</field>
+<field name="IDENTIFIER1">left_frontAsDcMotor</field>
+<field name="IDENTIFIER2">left_backAsDcMotor</field>
+<data>{"IDENTIFIER1":"left_front","IDENTIFIER2":"left_back"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="{n7pj0z(JLY/iqWfY85.">
+<field name="VAR" id="d?|O.6-9d.(WbJa{m_69">front_Left_pos</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="5}Ur=71vO$n9zL]cgz1J">
+<field name="VAR" id="]G)Tf-JR:D,.webq`k!8">back_Left_pos</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="OIefCWg^o9X|Iz=vy}|f">
+<field name="PROP">TargetPosition</field>
+<field name="IDENTIFIER1">right_frontAsDcMotor</field>
+<field name="IDENTIFIER2">right_backAsDcMotor</field>
+<data>{"IDENTIFIER1":"right_front","IDENTIFIER2":"right_back"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="8)@{;PQPX0!@lq85p~:S">
+<field name="VAR" id="~UVKCG$/$[pgqb)VGJ5c">front_Right_pos</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="BfEMM5cPYc_wlTXzWZRq">
+<field name="VAR" id="f|m^CFyYXe;N1iRm`|ao">back_Right_pos</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="1T.|4o.1)ZF%5F]go|fm">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">left_frontAsDcMotor</field>
+<field name="IDENTIFIER2">left_backAsDcMotor</field>
+<data>{"IDENTIFIER1":"left_front","IDENTIFIER2":"left_back"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="=ZxCV7S#O-h6yO;NICP|">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="R-[8|C(uqT3YK{}0QhhE">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="HR9tqx%ydj5Qgvt.wyLt">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">right_frontAsDcMotor</field>
+<field name="IDENTIFIER2">right_backAsDcMotor</field>
+<data>{"IDENTIFIER1":"right_front","IDENTIFIER2":"right_back"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="_|7Zm{Y:)o:wRp+ob?IT">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="I#0`7g:T;)_SwVoSgN0i">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="=]!lKiM|75(r@Q`^H}*[">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">left_frontAsDcMotor</field>
+<field name="IDENTIFIER2">left_backAsDcMotor</field>
+<data>{"IDENTIFIER1":"left_front","IDENTIFIER2":"left_back"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="s}r^3f9n7u,(ACMUX;7A">
+<field name="VAR" id="nR~oAkJk%Y+}|V9oD$W%">speed</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="10/TJbq(vlxo=GaAAihO">
+<field name="VAR" id="nR~oAkJk%Y+}|V9oD$W%">speed</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="gOr%O]-LBRgr{aj}ciMc">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">right_frontAsDcMotor</field>
+<field name="IDENTIFIER2">right_backAsDcMotor</field>
+<data>{"IDENTIFIER1":"right_front","IDENTIFIER2":"right_back"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="i/tyA}*~9PA8:,RhhjIE">
+<field name="VAR" id="nR~oAkJk%Y+}|V9oD$W%">speed</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="t64!:){g=FC|E]~s5rSE">
+<field name="VAR" id="nR~oAkJk%Y+}|V9oD$W%">speed</field>
+</block>
+</value>
+<next>
+<block type="controls_whileUntil" id="K-V+|kp!=#``U55T*+cz">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="logic_operation" id="y1%{:CrG!,%Q1k$.~+8E">
+<field name="OP">AND</field>
+<value name="A">
+<block type="linearOpMode_opModeIsActive" id="WP*f4#X(U!z{T3(eH!$/"/>
+</value>
+<value name="B">
+<block type="logic_operation" id="+4|ag{?:ikG.:|{n_k,l">
+<field name="OP">AND</field>
+<value name="A">
+<block type="dcMotor_isBusy" id="EP+Y0OTy6FWNc.W_eh(Z">
+<field name="IDENTIFIER">left_frontAsDcMotor</field>
+<data>{"IDENTIFIER":"left_front"}</data>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="p()-h0zgT}PKgLS(7{#?">
+<field name="OP">AND</field>
+<value name="A">
+<block type="dcMotor_isBusy" id="D|z=0fa(%*u|`ws:7^kF">
+<field name="IDENTIFIER">left_backAsDcMotor</field>
+<data>{"IDENTIFIER":"left_back"}</data>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="nf6.`T4l2n;}AEo^dr#5">
+<field name="OP">AND</field>
+<value name="A">
+<block type="dcMotor_isBusy" id="oaU4szS5-PM|(kIfQ80L">
+<field name="IDENTIFIER">right_frontAsDcMotor</field>
+<data>{"IDENTIFIER":"right_front"}</data>
+</block>
+</value>
+<value name="B">
+<block type="dcMotor_isBusy" id="1=OvfhL/nX%6cS@ijR/_">
+<field name="IDENTIFIER">right_backAsDcMotor</field>
+<data>{"IDENTIFIER":"right_back"}</data>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="linearOpMode_idle" id="$e1.bsF1K0lNl@EG;j}X"/>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="-748" y="330">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="45" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="variables_set" id="+WOa|3hz0c^Rah6+[;U4">
+<field name="VAR" id="3.)/eLHm(iRl1^Qsq;Hb">USE_WEBCAM</field>
+<value name="VALUE">
+<block type="logic_boolean" id="C]dWgdzJ2YW[h}=7w5QN">
+<field name="BOOL">TRUE</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="!/o[klD1jYML,@%W{UD/">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+<value name="VALUE">
+<block type="math_number" id="X!(-t^9fvU}k}M1K;iM[">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="]{C5zTTsT/j|mpgYd+3+">
+<field name="VAR" id="d?|O.6-9d.(WbJa{m_69">front_Left_pos</field>
+<value name="VALUE">
+<block type="math_number" id="j:?pZtq9%T@,=iwn(AQE">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="/bwKB*}FIcTB9s~5TuO{">
+<field name="VAR" id="]G)Tf-JR:D,.webq`k!8">back_Left_pos</field>
+<value name="VALUE">
+<block type="math_number" id="1/4Et)/lK+`bLW~C=-,h">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="GizyB.bL$ipk)%0p^)+r">
+<field name="VAR" id="~UVKCG$/$[pgqb)VGJ5c">front_Right_pos</field>
+<value name="VALUE">
+<block type="math_number" id="r8+b_ZL`#kNO?nI{P^B$">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="zfw%[HTuBp0t2E.eA_fJ">
+<field name="VAR" id="f|m^CFyYXe;N1iRm`|ao">back_Right_pos</field>
+<value name="VALUE">
+<block type="math_number" id="Gv[uxIA%T?uq9rN%Wv]O">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="6`#h}R)1bR7-*yIkl+HU">
+<field name="IDENTIFIER">left_frontAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"left_front"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="-8]o*`w+l0PmF9:BND#n">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="IxA|ksB0in;m.8ciZJGT">
+<field name="IDENTIFIER">left_backAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"left_back"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="%83f;|e@5x-m$esIW{Se">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_ZeroPowerBehavior" id="EG^@g0SmmHsYf`jhCgpi">
+<field name="PROP">ZeroPowerBehavior</field>
+<field name="IDENTIFIER1">left_backAsDcMotor</field>
+<field name="IDENTIFIER2">left_frontAsDcMotor</field>
+<data>{"IDENTIFIER1":"left_back","IDENTIFIER2":"left_front"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="~|RRNg`Sh3r!BBa4VB8$">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="+iM)q@f}km+*?J/xg%zy">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_ZeroPowerBehavior" id="eJ6Jyb[HAL@k(fv$B65e">
+<field name="PROP">ZeroPowerBehavior</field>
+<field name="IDENTIFIER1">right_backAsDcMotor</field>
+<field name="IDENTIFIER2">right_frontAsDcMotor</field>
+<data>{"IDENTIFIER1":"right_back","IDENTIFIER2":"right_front"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="MiH!@$Z)M[EH/IKf%r3_">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="^Nm9.I;=Dl5EKNwOESI`">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="mQg8p~YxI@`_I+;t_bPx">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">left_backAsDcMotor</field>
+<field name="IDENTIFIER2">left_frontAsDcMotor</field>
+<data>{"IDENTIFIER1":"left_back","IDENTIFIER2":"left_front"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="c.|LCl]x[muXrZm9^Z9J">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="R%!Hu9IyvFs~J[cH%1l}">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="dN2p^*c@2YSn7]79zd6d">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">right_backAsDcMotor</field>
+<field name="IDENTIFIER2">right_frontAsDcMotor</field>
+<data>{"IDENTIFIER1":"right_back","IDENTIFIER2":"right_front"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="_iPE:-dLzLW-V;tKy0.2">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="GNkOJQ!K#F0:0.CkQ`_2">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="f!-aSlffgVFEzr9UZZsL">
+<field name="IDENTIFIER">motor_armAsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"motor_arm","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"motor_arm\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"motor_arm\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="J6!yQ$hb(FI`G{H|nhOb">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="Ts@9wruC5%7;#o$*-IK!">
+<field name="IDENTIFIER">motor_armAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"motor_arm","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"motor_arm\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"motor_arm\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="2GpDjxZ={;;4+@B-N;6I">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="6t7`STAAJcdQZwEzztjV">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="^cGGRX!N{Ba*l/~-`CGx">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id=")AKDdsB)|Jnttl]Fa:6E">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="rnIE7UeE=gZ`qF-a5YAy">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Direction" id="w)W7D$y-a}!umMkc=#:)">
+<field name="IDENTIFIER">left_pixl_handAsServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"left_pixl_hand"}</data>
+<value name="VALUE">
+<shadow type="servo_typedEnum_direction" id="(i2WE:Pvl6Yrkt{B|ROQ">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Direction" id=";VjXle?P/,CpPqCxZ*]W">
+<field name="IDENTIFIER">right_pixl_handAsServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"right_pixl_hand"}</data>
+<value name="VALUE">
+<shadow type="servo_typedEnum_direction" id="pG~N$nD@k6X}%)aKbRd*">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="nMTmjk(6efGZA(_%YHVu">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="-I-8LB)yNG_ymL4]Wwlw">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="9M|k$~SGM*~v|D|$d2.T">
+<field name="IDENTIFIER">left_pixl_handAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"left_pixl_hand"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="rfP3NVSb^^vtI{e@huD;">
+<field name="NUM">0.3</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="vH-[uB`{N[.h:?)QYE^m">
+<field name="IDENTIFIER">right_pixl_handAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"right_pixl_hand"}</data>
+<value name="VALUE">
+<shadow type="math_number" id=".8G9Xj,L6L`d~!x(y9a%">
+<field name="NUM">0.8</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="X_kKuyVM[oN+zFyK$;_y">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="/1?uPbxz@-WL=-sY?3Js">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="f5VC4xOrYYZrGzpFY}@G">
+<mutation name="initAprilTag"/>
+<comment pinned="false" h="60" w="270">Initialize AprilTag before waitForStart.</comment>
+<next>
+<block type="telemetry_update" id="CcM7+$syN,5p}u1NCi8q">
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="procedures_callnoreturn" id="u}Kpw7wq`M?vxNxp,+nh">
+<mutation name="Robotics_Encoder">
+<arg name="front_Left_Tgt"/>
+<arg name="front_Right_Tgt"/>
+<arg name="back_Left_Tgt"/>
+<arg name="back_Right_Tgt"/>
+<arg name="speed"/>
+</mutation>
+<value name="ARG0">
+<block type="math_number" id="WWcl,6s!j^N/O2Wa1=2]">
+<field name="NUM">850</field>
+</block>
+</value>
+<value name="ARG1">
+<block type="math_number" id="!IeP}u_$iX(;?qa20X2_">
+<field name="NUM">850</field>
+</block>
+</value>
+<value name="ARG2">
+<block type="math_number" id="q|81^[^Y?,;I)h/AE_kA">
+<field name="NUM">850</field>
+</block>
+</value>
+<value name="ARG3">
+<block type="math_number" id=",*.UGKt[c2$R[#a_l-am">
+<field name="NUM">850</field>
+</block>
+</value>
+<value name="ARG4">
+<block type="math_number" id="@uqV!mT3hy8(}YEI4E|e">
+<field name="NUM">0.35</field>
+</block>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="`Uu#zy*W0rH{akx6Znbt">
+<mutation name="Encoder_Resst"/>
+<next>
+<block type="dcMotor_setProperty_Number" id="N6l=)Z3;*S[.i0%rM?(m">
+<field name="IDENTIFIER">motor_armAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"motor_arm","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"motor_arm\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"motor_arm\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="ui3=e(w`Z,(NZ_!)=ZFX">
+<field name="NUM">-0.35</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="x}Dq?!n3G*W^P~5y2J-+">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="0mC$Huz?C^9eNHFIIVD=">
+<field name="NUM">600</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="NC?EG)X@7`pM_M*}ygKr">
+<field name="IDENTIFIER">motor_armAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"motor_arm","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"motor_arm\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"motor_arm\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="#[Oq?=?X0`HyI]g^FOx[">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="wrK-VJ~tYTXw5A?sz7{T">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="q{q)?cyUG_L*#S^JLbMv">
+<field name="NUM">455</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="NI5|?t*ZIre7vQf[4[Zz">
+<field name="IDENTIFIER">right_pixl_handAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"right_pixl_hand"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="K4E^(kPHCfR$vpQ@4^pF">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="f144MNDb*_ra/i7oh/xj">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="x379Q:#5URnR`K(%V:aa">
+<field name="NUM">500</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="^VC4C8IyndeoZ[o3`miO">
+<field name="IDENTIFIER">motor_armAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"motor_arm","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"motor_arm\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"motor_arm\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="e$S5F6}9cnQcg=D^[Ul[">
+<field name="NUM">0.5</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="L3;3lSbc=XUs;,Wa!Id.">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="%7NwEe`AxPIG}bIioGII">
+<field name="NUM">600</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="!pP,8wbI[NOXh?80?|ul">
+<field name="IDENTIFIER">motor_armAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"motor_arm","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"motor_arm\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"motor_arm\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="o-GgDItVhHStP)o_1M)u">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="WuBh0blZHIkg~/7AS,aE">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="kUB*edABrA%#%I(psYiz">
+<field name="NUM">600</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="-BSw@8?GMeiTT@$l-r[0">
+<mutation name="Encoder_Resst"/>
+<next>
+<block type="procedures_callnoreturn" id="QlH^V^!piM2]Wl%4-J=a">
+<mutation name="Robotics_Encoder">
+<arg name="front_Left_Tgt"/>
+<arg name="front_Right_Tgt"/>
+<arg name="back_Left_Tgt"/>
+<arg name="back_Right_Tgt"/>
+<arg name="speed"/>
+</mutation>
+<value name="ARG0">
+<block type="math_number" id="%WZ@Fnftqv3cmAP4cNa~">
+<field name="NUM">-925</field>
+</block>
+</value>
+<value name="ARG1">
+<block type="math_number" id="%GZ=#1R5s0=/4q:5k~KN">
+<field name="NUM">926</field>
+</block>
+</value>
+<value name="ARG2">
+<block type="math_number" id="%-p.p*+X^mPZl3~h$(0.">
+<field name="NUM">-925</field>
+</block>
+</value>
+<value name="ARG3">
+<block type="math_number" id="aB[aLSY!(Q_)u+4qipXs">
+<field name="NUM">926</field>
+</block>
+</value>
+<value name="ARG4">
+<block type="math_number" id="4p-.UJ(y=L3//wqJnLQa">
+<field name="NUM">0.35</field>
+</block>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="[?fm|q#F2Ex)`1?]qS1^">
+<mutation name="Encoder_Resst"/>
+<next>
+<block type="procedures_callnoreturn" id="q@?0YO|J0Jouxx8;+}H5">
+<mutation name="Robotics_Encoder">
+<arg name="front_Left_Tgt"/>
+<arg name="front_Right_Tgt"/>
+<arg name="back_Left_Tgt"/>
+<arg name="back_Right_Tgt"/>
+<arg name="speed"/>
+</mutation>
+<value name="ARG0">
+<block type="math_number" id="%7F#TGK./vV3pEil]0Jp">
+<field name="NUM">-1800</field>
+</block>
+</value>
+<value name="ARG1">
+<block type="math_number" id="j4:|n$2]lM{f*oWs{bhr">
+<field name="NUM">-1800</field>
+</block>
+</value>
+<value name="ARG2">
+<block type="math_number" id="k//Q,z[Z71eC-r=|di2*">
+<field name="NUM">-1800</field>
+</block>
+</value>
+<value name="ARG3">
+<block type="math_number" id=".H$mZ#!)Ypxp/@Ggo]u{">
+<field name="NUM">-1800</field>
+</block>
+</value>
+<value name="ARG4">
+<block type="math_number" id="?p45AiKR(+kjWzWKcL)g">
+<field name="NUM">0.35</field>
+</block>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="[O%+8k,8OKm$wpWusw2U">
+<mutation name="Encoder_Resst"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="w9Qt]zd^_3,g8reZOXdG">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="De5@^GE)BvRR!B@ne^%2">
+<field name="NUM">400</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="C{iq[@lBq~ej!Y_aBngd">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="{rHUwp3h-]29uYKv{f$!">
+<field name="NUM">1500</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="#[Drs_^EEA*511t7v=V;">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="#EttcPjjq:Z#TeEf7JQC">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id=";/6V$($}tACQ?@LH0!t0">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="oy~gyQ$lul`q]Yjs(aA9">
+<field name="NUM">0.35</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="lz2LX;w$G.OA`e0p/K.S">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="YJBDLF;s_v-5^uDe,]^a">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id=":ybGEJ.r`_/d6W/!$6|,">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="%{R.{E94dQav|MQVRiTS">
+<field name="NUM">2120</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="-hIg^#N+FK+XV*#`NN:p">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="z;_jQ8qQ!i9=3Hyz}_#p">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="]cn6o8D!QBRH`1dNW,FE">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="HA8SWL)K.mx4;JAG03-!">
+<field name="NUM">0.35</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="XC6VNC3HLJx:TVm2c3RL">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="_U}6625tFX7@/8[Y/Iyu">
+<field name="NUM">1800</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="*:YY9ebsO*Z0J{#r*sz2">
+<field name="IDENTIFIER">left_pixl_handAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"left_pixl_hand"}</data>
+<value name="VALUE">
+<shadow type="math_number" id=",mBoDu468-.`0Ay2|E[+">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="GLs9cUj[7#Hcn(8-cfZ?">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="g/tNJ.QPqVaVUaOAOlTC">
+<field name="NUM">2300</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="%CmDno,A*@=LsA(_c;}M">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="z]ipc*t!}):9g=k20_%X">
+<field name="NUM">10</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="_+)!HY1A6:db*d8QhLbf">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="DagpX_cdRdPFh;CzZpG0">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="./Xoq{Hy?cU}_iE|jA)m">
+<field name="IDENTIFIER">arm_1AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"arm_1","block_warning_hidden":false,"block_warning_text":"There is no DcMotor named \"arm_1\" in the current robot configuration.\nPlease activate the configuration that contains the DcMotor named \"arm_1\",\nor select a device that is in the current robot configuration."}</data>
+<value name="VALUE">
+<shadow type="math_number" id="2zPQ~GmM6$jh:HRJe=?-">
+<field name="NUM">0.35</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="bb1cUZ}p/!khPZUSNZ[p">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="d0+Z;~]cTXa,PSiV#14@">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id=".+{WL:!6~1k3rQfJH0_b">
+<mutation name="Encoder_Resst"/>
+<next>
+<block type="procedures_callnoreturn" id="ea@PKCkDx:V.H)es2BMA">
+<mutation name="Robotics_Encoder">
+<arg name="front_Left_Tgt"/>
+<arg name="front_Right_Tgt"/>
+<arg name="back_Left_Tgt"/>
+<arg name="back_Right_Tgt"/>
+<arg name="speed"/>
+</mutation>
+<value name="ARG0">
+<block type="math_number" id=",:$VtPIx^YU)*%5A(c]J">
+<field name="NUM">-1300</field>
+</block>
+</value>
+<value name="ARG1">
+<block type="math_number" id="vmbiI/(fx1m?rMndc);b">
+<field name="NUM">1300</field>
+</block>
+</value>
+<value name="ARG2">
+<block type="math_number" id="P}@JFxf9hHy?uX1hm]Bl">
+<field name="NUM">1300</field>
+</block>
+</value>
+<value name="ARG3">
+<block type="math_number" id=";nY:12s.Bs_/PtxaGR`^">
+<field name="NUM">-1300</field>
+</block>
+</value>
+<value name="ARG4">
+<block type="math_number" id="(IA~!y?iMJ`idDoH(tRG">
+<field name="NUM">0.35</field>
+</block>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="{Hc@=lDIWP+,WhSG}o5Q">
+<mutation name="Encoder_Resst"/>
+<next>
+<block type="procedures_callnoreturn" id="[s09kPU5quQk-*/]qi!4">
+<mutation name="Robotics_Encoder">
+<arg name="front_Left_Tgt"/>
+<arg name="front_Right_Tgt"/>
+<arg name="back_Left_Tgt"/>
+<arg name="back_Right_Tgt"/>
+<arg name="speed"/>
+</mutation>
+<value name="ARG0">
+<block type="math_number" id="1(*;{WE7VCei@^zHo*Sk">
+<field name="NUM">-250</field>
+</block>
+</value>
+<value name="ARG1">
+<block type="math_number" id="hDSU{vSPu0O42-hdP`]w">
+<field name="NUM">-250</field>
+</block>
+</value>
+<value name="ARG2">
+<block type="math_number" id="PIF0`3$wNopfcYWOgHzR">
+<field name="NUM">-250</field>
+</block>
+</value>
+<value name="ARG3">
+<block type="math_number" id="NI,V|$t-tV7@dyAt=R`R">
+<field name="NUM">-250</field>
+</block>
+</value>
+<value name="ARG4">
+<block type="math_number" id="kL2l|r7Z8V4G;nymq|Da">
+<field name="NUM">0.35</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id=":Un!nS!LS%^tq]:g4^?Z" x="40" y="438">
+<field name="NAME">initAprilTag</field>
+<comment pinned="false" h="80" w="160">Initialize AprilTag Detection.</comment>
+<statement name="STACK">
+<block type="aprilTagProcessorBuilder_create_assign" id="]gR@^J/H_v)OY6f[`3z5">
+<field name="APRIL_TAG_PROCESSOR_BUILDER" id="NYqOu)Ei(Q{C!f;y!a^O" variabletype="AprilTagProcessor.Builder">myAprilTagProcessorBuilder</field>
+<next>
+<block type="variables_set" id="$.wt,WCD1s5fSqROQT*(">
+<field name="VAR" id="?.?jAjDXaP~!^(jq/Ls_">myAprilTagProcessor</field>
+<value name="VALUE">
+<block type="aprilTagProcessorBuilder_build" id="3Vk~@]VGDELD;GHGgEgn">
+<field name="APRIL_TAG_PROCESSOR_BUILDER" id="NYqOu)Ei(Q{C!f;y!a^O" variabletype="AprilTagProcessor.Builder">myAprilTagProcessorBuilder</field>
+</block>
+</value>
+<next>
+<block type="visionPortalBuilder_create_assign" id="s1^/ZS*LG[dC%CsYcl=%">
+<field name="VISION_PORTAL_BUILDER" id="wx@xgbnS_]b0DQL.08Qg" variabletype="VisionPortal.Builder">myVisionPortalBuilder</field>
+<next>
+<block type="controls_if" id="T`t))DI)e(S6b*Xls7U=">
+<mutation else="1"/>
+<value name="IF0">
+<block type="variables_get" id="Zr+H]wQb_aiB|J+{-0:G">
+<field name="VAR" id="3.)/eLHm(iRl1^Qsq;Hb">USE_WEBCAM</field>
+</block>
+</value>
+<statement name="DO0">
+<block type="visionPortalBuilder_setCamera" id="h;`Yd}]R=F.Fw89p`1N/">
+<field name="VISION_PORTAL_BUILDER" id="wx@xgbnS_]b0DQL.08Qg" variabletype="VisionPortal.Builder">myVisionPortalBuilder</field>
+<comment pinned="false" h="68" w="247">Use a webcam.</comment>
+<value name="CAMERA">
+<shadow type="navigation_webcamName" id="b`AjugjMrzm855@U*q;W">
+<field name="WEBCAM_NAME">Webcam 1</field>
+</shadow>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="visionPortalBuilder_setCamera" id="pm=N,.9EB)-Y)[HJlB;-">
+<field name="VISION_PORTAL_BUILDER" id="wx@xgbnS_]b0DQL.08Qg" variabletype="VisionPortal.Builder">myVisionPortalBuilder</field>
+<comment pinned="false" h="56" w="298">Use the device's back camera.</comment>
+<value name="CAMERA">
+<shadow type="navigation_typedEnum_builtinCameraDirection" id="8u8O_}55dptgjBxmKq`9">
+<field name="CAMERA_DIRECTION">FRONT</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block type="visionPortalBuilder_addProcessor" id="`A$k?7nl@kd=7y*v@/+-">
+<field name="VISION_PORTAL_BUILDER" id="wx@xgbnS_]b0DQL.08Qg" variabletype="VisionPortal.Builder">myVisionPortalBuilder</field>
+<value name="VISION_PROCESSOR">
+<block type="variables_get" id="HoXmAtlB7{ai0YF!ZyTl">
+<field name="VAR" id="?.?jAjDXaP~!^(jq/Ls_">myAprilTagProcessor</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="UggZXj@UuhBf97)(oA;m">
+<field name="VAR" id="Xk!_{IPng0#/P|7dx?3N">myVisionPortal</field>
+<value name="VALUE">
+<block type="visionPortalBuilder_build" id="OBOV:tKH!^AaYsI{A$~x">
+<field name="VISION_PORTAL_BUILDER" id="wx@xgbnS_]b0DQL.08Qg" variabletype="VisionPortal.Builder">myVisionPortalBuilder</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="a66-wd~Q(SAvhN$v_$a*" x="65" y="848">
+<field name="NAME">Encoder_Resst</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_RunMode" id="aIt-4~{+cUtvNzI/q~t^">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">left_backAsDcMotor</field>
+<field name="IDENTIFIER2">left_frontAsDcMotor</field>
+<data>{"IDENTIFIER1":"left_back","IDENTIFIER2":"left_front"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id=",?x{j1a09!GBVQ?Q%n.1">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="Iv--f),_3=2u?poXlV([">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="$A)Aw8?UHsdxxuJ(n$Zx">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">right_backAsDcMotor</field>
+<field name="IDENTIFIER2">right_frontAsDcMotor</field>
+<data>{"IDENTIFIER1":"right_back","IDENTIFIER2":"right_front"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="=/#K%HlkFRqlrlIwDC[#">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="Agp~-KM4VdwT1%b.app*">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="Eg%7GTPuhcoA]FCw9:]O" x="-80" y="1590">
+<field name="NAME">telemetryAprilTag</field>
+<comment pinned="false" h="80" w="160">Display info (using telemetry) for a recognized AprilTag.</comment>
+<statement name="STACK">
+<block type="variables_set" id="c8~R@@~J_)0dhTTP,GP@">
+<field name="VAR" id="l)/,LjA`jR!1Nc@Z:`l!">myAprilTagDetections</field>
+<comment pinned="false" h="80" w="160">Get a list of AprilTag detections.</comment>
+<value name="VALUE">
+<block type="aprilTagProcessor_getDetections" id="^Sth`xX=n79Q8`P*Z#qt">
+<value name="APRIL_TAG_PROCESSOR">
+<block type="variables_get" id="Icn).;@XjTI7SR.j$UY#">
+<field name="VAR" id="?.?jAjDXaP~!^(jq/Ls_">myAprilTagProcessor</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="3m5}jTks8BeMJ]|.h*Kp">
+<value name="KEY">
+<shadow type="text" id="MNA3Pe{~9.uc1dSMmO=j">
+<field name="TEXT"># AprilTags Detected</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="DRWu-r*O-0eJ4pG2n$_l">
+<field name="TEXT"/>
+</shadow>
+<block type="lists_length" id="q{bEB[P*p2XiVOMj*ku#">
+<value name="VALUE">
+<block type="variables_get" id="/5v#48C2W5M+l:4)g!zX">
+<field name="VAR" id="l)/,LjA`jR!1Nc@Z:`l!">myAprilTagDetections</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="controls_forEach" id="|@Y$y8D~],V(MRQ+Cyv{">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+<comment pinned="false" h="81" w="199">Iterate through list and call a function to display info for each recognized AprilTag.</comment>
+<value name="LIST">
+<block type="variables_get" id="W,d1s!eFWeDT0X}~eq,n">
+<field name="VAR" id="l)/,LjA`jR!1Nc@Z:`l!">myAprilTagDetections</field>
+</block>
+</value>
+<statement name="DO">
+<block type="comment" id="U@Dkpel-LMa.00jJsqA-">
+<field name="COMMENT">Display info about the detection.</field>
+<next>
+<block type="telemetry_addLine" id="qrKb?#/HMYJo.RhU8rW:">
+<value name="TEXT">
+<shadow type="text" id="3^Lv-r.jG6}7LV;(yIh.">
+<field name="TEXT"/>
+</shadow>
+</value>
+<next>
+<block type="controls_if" id="1KHSCf_sX!Qd~BKfG}QD">
+<mutation else="1"/>
+<value name="IF0">
+<block type="aprilTagDetection_getProperty_IsNotNull" id=":^$lP:Ut!p3Z)E+vy^]D">
+<field name="PROP">metadata</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="9Lq*6VTlT$7uDRiB|mYe">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="telemetry_addLine" id="awB~K!HjEb=h6tM,%vLN">
+<value name="TEXT">
+<shadow type="text" id="?hM/$PX}4MN:|W`joKgn">
+<field name="TEXT"/>
+</shadow>
+<block type="text_join" id="0C_x2#T#t7yl!%45k{$?">
+<mutation items="4"/>
+<value name="ADD0">
+<block type="text" id="buEo7p[-2T4:49=`uwK1">
+<field name="TEXT">==== (ID </field>
+</block>
+</value>
+<value name="ADD1">
+<block type="aprilTagDetection_getProperty_Number" id="lifbVBMNn+.1j?y6v54X">
+<field name="PROP">id</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="w(63KWmGiZ83+qITBep;">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="ADD2">
+<block type="text" id="=n-]].djPxb,OFyxcOQF">
+<field name="TEXT">) </field>
+</block>
+</value>
+<value name="ADD3">
+<block type="aprilTagDetection_getProperty_String" id="=AvXMAjUic3u3lbFtEt4">
+<field name="PROP">metadata.name</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="zKHYs.Y87Qrl9%G~Oq^V">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addLine" id=";grqK`+-g7;g50c=|L0l">
+<value name="TEXT">
+<shadow type="text" id="!y]i-sUsabeyV/)u=6D5">
+<field name="TEXT"/>
+</shadow>
+<block type="text_join" id="4TtGi;Z(gbFaks}Eap^9">
+<mutation items="7"/>
+<value name="ADD0">
+<block type="text" id="+]Cns+.i=%b0bFaT6;NI">
+<field name="TEXT">XYZ </field>
+</block>
+</value>
+<value name="ADD1">
+<block type="misc_formatNumber_withWidth" id="df*#gw3iYx$kvL$9{Y?m">
+<value name="NUMBER">
+<shadow type="math_number" id="g`p?z|x@JeU%MJ4.tSFQ">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="jUN`u.6t[:O8`9Ncql]!">
+<field name="PROP">ftcPose.x</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="mb(6}~t}KLoi4`XT~d:H">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="k*}!VVn#l8HSq7E2i?#R">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="mh4H+`GE$Em,(iS4ZjPR">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD2">
+<block type="text" id="y34}1aACqw@S]sESt=A#">
+<field name="TEXT"/>
+</block>
+</value>
+<value name="ADD3">
+<block type="misc_formatNumber_withWidth" id="4Oj?ZaC$d#_1X}?b[T.|">
+<value name="NUMBER">
+<shadow type="math_number" id="2cGf/q9c-ZnJ}LB6C1i$">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="^ZxENE!MDi;z:vW0d@XL">
+<field name="PROP">ftcPose.y</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="bYyr?K,sa#Z.])=_ot.X">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="BQJxM*kkA=P:cx1$gjDj">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="$REh~]PUb9LYTO;OfzqZ">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD4">
+<block type="text" id="D7A3=:fGOVPSdci(UQtX">
+<field name="TEXT"/>
+</block>
+</value>
+<value name="ADD5">
+<block type="misc_formatNumber_withWidth" id="FCZL%yFs6[0x{rm0ps54">
+<value name="NUMBER">
+<shadow type="math_number" id="|j[Xf6X[,{Y~6k#Ow9ay">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="@o/Xx/]f-CWGv|Tr)2Nk">
+<field name="PROP">ftcPose.z</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="[9!-4|yF{X2|/{iSu:SC">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="ga,Viu`_|ozkv#5q3*@0">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="(E3-dHVlUbl(~6A~LN[p">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD6">
+<block type="text" id=")9nfo^3]N$S,m~5}*3*=">
+<field name="TEXT">  (inch)</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addLine" id="6W%[*9{;}.5Jl{VBB=*t">
+<value name="TEXT">
+<shadow type="text" id=";t?`r+|~SzTLUUHO=;M9">
+<field name="TEXT"/>
+</shadow>
+<block type="text_join" id="$$x)e|XJcO*g[Y8~M2/Q">
+<mutation items="7"/>
+<value name="ADD0">
+<block type="text" id="CNSpY2iH=tR#]P,pi4u.">
+<field name="TEXT">PRY </field>
+</block>
+</value>
+<value name="ADD1">
+<block type="misc_formatNumber_withWidth" id="sht8%%Nn`h2}jwZ`-{x)">
+<value name="NUMBER">
+<shadow type="math_number" id="?pMQrP+klggGPQ})NZWJ">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="Iy|1o|tQ9/Xq~XhaEN$_">
+<field name="PROP">ftcPose.pitch</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="rVJim4c8+/ys[,t:o!0a">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="mHP*I^3G3|9rAiui`;?f">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="VxWPF,FgQz,lDodmj[WR">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD2">
+<block type="text" id="]dbZO?6z_PP)Na=ij|hW">
+<field name="TEXT"/>
+</block>
+</value>
+<value name="ADD3">
+<block type="misc_formatNumber_withWidth" id="!i;Ow5b5|tm]^:f=af8O">
+<value name="NUMBER">
+<shadow type="math_number" id="xsH[9W8/eLks@vlm]1*g">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="ShLjZCVXxN!~/4l*tkIW">
+<field name="PROP">ftcPose.roll</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="OCoPF8gE#WFKctf6vd6f">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="DyJDDqNjyT?RD%Og91T/">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="M?Svc5)[b)Apn186A8Em">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD4">
+<block type="text" id="7-XP1=zX3p(TS(}va$9`">
+<field name="TEXT"/>
+</block>
+</value>
+<value name="ADD5">
+<block type="misc_formatNumber_withWidth" id=":tQhsy?3wU|KpZT;GEux">
+<value name="NUMBER">
+<shadow type="math_number" id="v%b/#{Uh]xNL*jCpZAlp">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="rr^=wlJCB2_afebAXJ}Z">
+<field name="PROP">ftcPose.yaw</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="vBZ8!}wPWKb}V3-g]Wle">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="mu5y,^`sp#UgVsrfnkbc">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="1a@0e%XGstoBjtg)K@p]">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD6">
+<block type="text" id="I*Wn1Gf}j+e`]CP5J0Cp">
+<field name="TEXT">  (deg)</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addLine" id="p~aY/Ief^l:6#%yF5mBb">
+<value name="TEXT">
+<shadow type="text" id="[:Q^{:f(MSqR]$h@YO_G">
+<field name="TEXT">text</field>
+</shadow>
+<block type="text_join" id="7AAW16ak[E;pRyJ50_pV">
+<mutation items="7"/>
+<value name="ADD0">
+<block type="text" id="_D88fgJh36dZBe#kxQkh">
+<field name="TEXT">RBE </field>
+</block>
+</value>
+<value name="ADD1">
+<block type="misc_formatNumber_withWidth" id="o=,mI,_W=C-(irqk:S^/">
+<value name="NUMBER">
+<shadow type="math_number" id="67$:0vchTm|ZAu?yf9Zs">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="V_e8w[RX[YJ6%2RfwTK4">
+<field name="PROP">ftcPose.range</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="5U:C0C|9gsGJwjwric-u">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="E}T84I!akJTmE1gb#KTc">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="UKUfpg-DJ~rM||Pp1;?~">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD2">
+<block type="text" id="/)!A!j+m`c^.RSzJfnW8">
+<field name="TEXT"/>
+</block>
+</value>
+<value name="ADD3">
+<block type="misc_formatNumber_withWidth" id="v,Ilg5bR5*;(#^l3B@-0">
+<value name="NUMBER">
+<shadow type="math_number" id="%)S}?+}8]#C5YOJMTtIz">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="}bh%9Kz6)u_zYo7,L]Iq">
+<field name="PROP">ftcPose.bearing</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="B6P^H@vWo+vyX@sYn_ik">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="5ti##om.fc`N4y~4C#;|">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="22o;=,7*otM:5h`-4L|A">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD4">
+<block type="text" id="Q|e}m1um|X;(#X^F`wb(">
+<field name="TEXT"/>
+</block>
+</value>
+<value name="ADD5">
+<block type="misc_formatNumber_withWidth" id="x-{*.Ghd4zinz}U9X3?V">
+<value name="NUMBER">
+<shadow type="math_number" id=".MdJRQ6rUBU)RFzD8T%o">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="D(K1+O}E+Y7i_ek8}A?z">
+<field name="PROP">ftcPose.elevation</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="sv;lYz!5q^E[A|N14(.X">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="GU73O^@;SXL))%*l[8Me">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="4Nv)-M9MfCY%aAn:1SEF">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD6">
+<block type="text" id="x`,kpt}.uw,YSWON!D^j">
+<field name="TEXT">  (inch, deg, deg)</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="telemetry_addLine" id=".k7)ZU|.JU[vLM%.9oWH">
+<value name="TEXT">
+<shadow type="text" id="hqwM9[:8R6P;nJWo`z$@">
+<field name="TEXT"/>
+</shadow>
+<block type="text_join" id="Q$XL59m.y(HLLD=Lb6bM">
+<mutation items="3"/>
+<value name="ADD0">
+<block type="text" id="GO{s|1|cjZX5wm!s}6^U">
+<field name="TEXT">==== (ID </field>
+</block>
+</value>
+<value name="ADD1">
+<block type="aprilTagDetection_getProperty_Number" id="YbKMT]1!N/1orH}f.`^%">
+<field name="PROP">id</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="*DZMa]u.xVDWo54-+9Xp">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="ADD2">
+<block type="text" id="Ej2sUV*ZReT^:zwt~{Ar">
+<field name="TEXT">) Unknown</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addLine" id="*wewMc^H[$Rs0;EK}Ow]">
+<value name="TEXT">
+<shadow type="text" id="2oq;P##KvH:(,WjrIe3!">
+<field name="TEXT"/>
+</shadow>
+<block type="text_join" id="DS^4mx0$o}XW[*EAx9g+">
+<mutation items="5"/>
+<value name="ADD0">
+<block type="text" id="~aS!V+hMdY{-*4G3Ow%3">
+<field name="TEXT">Center </field>
+</block>
+</value>
+<value name="ADD1">
+<block type="misc_formatNumber_withWidth" id="NWWJ-BvdUXyMBZ|RD`m}">
+<value name="NUMBER">
+<shadow type="math_number" id="WWZ1rIy[E-^rf4i5ES.w">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="Kns6PW?m}A;SO?@NVb#)">
+<field name="PROP">center.x</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="Ar)`$(G]w1~mg?c!0{v;">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="ZZ080[{./+Y}t=(P1DCR">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="sPPkrRLvHyLpl?+E}RhL">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD2">
+<block type="text" id="M[jW(z}Tg(pfF5o6v96v">
+<field name="TEXT"/>
+</block>
+</value>
+<value name="ADD3">
+<block type="misc_formatNumber_withWidth" id="IGswFrO!Q%aCF}3x,SPE">
+<value name="NUMBER">
+<shadow type="math_number" id="iQ6P;:;Igrei}.mq2:.{">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="aprilTagDetection_getProperty_Number" id="P2eT2TYX6nNBSYz7e^E)">
+<field name="PROP">center.y</field>
+<value name="APRIL_TAG_DETECTION">
+<block type="variables_get" id="ZmOVtYIkx|@b66VSAfd]">
+<field name="VAR" id="vP~n9zf$lW%hYD/C.j_-">myAprilTagDetection</field>
+</block>
+</value>
+</block>
+</value>
+<value name="WIDTH">
+<shadow type="math_number" id="MQkYmiA}ms4pA[Ifr2gb">
+<field name="NUM">6</field>
+</shadow>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="*L=(!sY,[nz~xV=Ke@]u">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="ADD4">
+<block type="text" id="lH92feGire@JDBfwGTlN">
+<field name="TEXT"> (pixels)</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="AUTONOMOUS" group="red" autoTransition="POD_Opmode" />
+<Enabled value="true" />
+</Extra>
