@@ -1,6 +1,3 @@
-Redback java and block code
+Redback java and block code.
 
-<!---
-elshwahas/elshwahas is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+Use this repo to pull and change the code to ensure consistancy and a trail for changes done.
